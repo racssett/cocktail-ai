@@ -6,7 +6,7 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 def get_cocktail_suggestion(ingredients):
     prompt = (
         f"You are a world-class bartender. Based on the following ingredients: {ingredients}, "
-        f"suggest a classic cocktail. The cocktail should not have more than four ingrediaents. Include the name, ingredients with measurements, and instructions."
+        f"If the user shares ingredients, suggest a classic cocktail. The cocktail should not have more than four ingrediaents. Include the name, ingredients with measurements, and instructions. If they do not include ingredients, tell them 'real ingredients needed'"
     )
 
     response = client.chat.completions.create(
